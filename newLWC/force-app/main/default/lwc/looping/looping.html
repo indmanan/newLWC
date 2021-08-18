@@ -1,0 +1,71 @@
+<template>
+
+    <!-- Start for:each loop for the array -->
+
+    <lightning-card title="for:each loop with array">
+        <div class="slds-m-around_medium">
+            <template for:each={carList} for:item="car">
+                <div key={car}>
+                    <ul class="slds-list_dotted">
+                        <li>{car}</li>
+                     </ul>
+                </div>
+            </template>
+        </div>
+    </lightning-card>
+
+     <!-- End for:each loop for the array -->
+
+<!-- For each loop with array of objects -->
+
+    <lightning-card title="for:each loop with array of objects">
+        <div class="slds-m-around_medium">
+            <template for:each={ceoList} for:item="item">
+                <div key={item.id}>
+                    <ul class="slds-list_dotted">
+                        <li>{item.name} CEO of  {item.company}</li>
+                     </ul>
+                </div>
+            </template>
+        </div>
+    </lightning-card>
+
+    <lightning-card title="Iterator Loop Use">
+
+        <div class="slds-m-around_medium">
+            <template 
+            iterator:ceo={ceoList}>
+
+                <div key={ceo.value.id}>
+                    <ul class="slds-list_dotted">
+                        <template if:true={ceo.first}>
+                            <div class="slds-box slds-theme_shade">
+                                <strong>
+                                    List of Company and their CEO are as follow<br />
+                                </strong>
+                            </div>
+                        </template>
+                        <li>
+                            <strong>
+                                {ceo.value.company}<br />
+                            </strong>    
+                            {ceo.value.name}
+                        </li>
+
+                        <template if:true={ceo.last}>
+                            <div class="slds-box slds-theme_shade">
+                                <strong>
+                                    Thanks for looking at the list of the CEOs
+                                </strong>
+                            </div>
+                        </template>
+                     </ul>
+
+                </div>
+
+            </template>
+
+        </div>
+
+    </lightning-card>
+</template>

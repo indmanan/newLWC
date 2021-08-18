@@ -1,0 +1,35 @@
+<template>
+
+    <lightning-card title="Conditional Rendering">
+        <div class="slds-m-around_none">
+            <lightning-button
+             variant="brand" 
+             label="Show Data" 
+             title="Show Data" 
+             onclick={handleClick} 
+             class="slds-m-left_x-small">
+            </lightning-button>
+
+            <template if:true={isVisible}>
+                <div class="slds-m-around_medium">I am div and visible only when clicked on the button</div>
+            </template>
+
+            <template if:false={isVisible}>
+                <div class="slds-m-around_medium" > You cannot see the data please click the data</div>
+            </template>
+            <div class="slds-m-around_medium">
+                <b> hello to see the result in the input field</b>
+            </div>
+            <lightning-input
+            class="slds-m-around_medium"
+            type="text"
+            onkeyup={changeHandler}>
+        </lightning-input>
+        <template if:true={helloMethod} title="type hello to see the outcome">
+            <div class="slds-m-around_medium">Well done you have typed the correct keyword</div>
+        </template>
+        </div>
+    </lightning-card>
+    
+    
+</template>
